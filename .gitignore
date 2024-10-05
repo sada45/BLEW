@@ -1,2 +1,4 @@
-/models/
-/processed_data/
+/models/*
+!/models/.gitkeep
+/processed_data/*
+!/processed_data/.gitkeep
