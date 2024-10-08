@@ -159,7 +159,7 @@ def preamble_awgn(raw_signal, snr, centers, extf, noise_signal, extra=0):
     # signal_power = np.average(signal_power, axis=1)
     variance = np.power(10, (snr/10)) * noise_power
     scaled_signal = np.sqrt(variance / signal_power)[:, np.newaxis] * raw_signal
-    signal = noise_signal
+    signal = noise_signal.copy()
     signal[:, extra:] += scaled_signal
     b1m, a1m = scipy.signal.butter(8, 2e6 / config.sample_rate, "lowpass")
     filtered_signal = scipy.signal.filtfilt(b1m, a1m, signal, 1)
