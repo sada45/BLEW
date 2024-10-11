@@ -3,7 +3,7 @@ sys.path.append("./scripts")
 import numpy as np
 import opt.goodput_opt as go
 
-detect_rate_file = "/liymdata/liym/BLong/output/packet_detection/awgn_packet_detection_{}_detail.csv"
+detect_rate_file = "./output/packet_detection/awgn_packet_detection_{}_detail.csv"
 
 
 extfs = [1, 2, 4, 8, 16, 32, 64]

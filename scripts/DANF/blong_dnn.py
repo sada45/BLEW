@@ -13,6 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # To make sure the model reproducibility
 SEED = 11
 np.random.seed(SEED)
+
 torch.manual_seed(SEED)
 if torch.cuda.is_available():
     torch.cuda.manual_seed(SEED)
