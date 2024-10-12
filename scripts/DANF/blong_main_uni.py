@@ -419,7 +419,7 @@ if __name__ == "__main__":
         print("+++++++++++++++++++++++++++++++")
         print(extf)
         # dnn_train_main(extf, "dnn_uni_cpy_wr20")
-        dnn_uni_update_main(extf)  # 64要重拍跑了
+        dnn_uni_update_main(extf)
 
         print("+++++++++++++++++++++++++++++++")
         
