@@ -412,17 +412,8 @@ def dnn_uni_update_main(extf):
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=8)
     dnn_update(dnn_dict, train_dataloader, test_dataset, extf, name="dnn_uni_cpy_wr_dis", db_range=ds)
     
-"""
-dnn [-20 0] utils.awgn没有copy
-dnn_wr [-20, 5]utils.awgn没有copy
-dnn_uni [-20, 5]utils.awgn没有copy
-dnn_uni_cpy [-20, 0]utils.awgn有copy
-dnn_uni_cpy_wr [-20, 10]utils.awgn有copy, 因为之前有那个内存泄露问题，会导致后面的epoch的实际snr会叠加之前的信号，snr上升
-
-"""
 if __name__ == "__main__":
     db_ranges = []
-    # 对于训练64，需要一点随机性，这边的numpy随机种子固定为11，一般前一次跑的增益很差，但是如果连续跑两次后面那个随机状态变化，反而更好
     # [1, 2, 4, 16, 32, 64]
     for extf in [1, 2, 4, 16, 32, 64]:
         print("+++++++++++++++++++++++++++++++")
@@ -430,10 +421,6 @@ if __name__ == "__main__":
         # dnn_train_main(extf, "dnn_uni_cpy_wr20")
         dnn_uni_update_main(extf)  # 64要重拍跑了
 
-        """
-        WiFi 这个跑的时候，1, 2, 4, 16, 32, 64，然后64单独跑
-        dnn_wifi_update_main(extf)
-        """
         print("+++++++++++++++++++++++++++++++")
         
         # dnn_wr_update_main(extf)

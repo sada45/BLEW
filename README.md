@@ -10,7 +10,17 @@ Dataset and trained models is uploaded to [here](https://1drv.ms/f/c/92164f3e5a5
 
 ## Before start
 An absolute path should be updated since code files in different path can uses that code. 
-In `blong_dnn.py` Line 443 and 445, change `/liymdata/liym/BLong` to your path store the code
+In `blong_dnn.py` Line 443 and 445, change `/liymdata/liym/BLong` to your path store the code.
+
+We first introduce the code structure of BLEW. In the root directory, the `models` includes the trained models and the tranning logs. `output` includes the processed data for ploting figures and analyzing. `processed_data` saves the processed data (e.g., detected packets, trainning datasets, etc.). `raw_data` includes the raw signal files. `scripts` including all the experiment codes.
+
+Sepcifically, the root of `scripts` contains the main code to run the experiments. `scripts/DANF` includes all the DNN trainning/updating and the model components. `scripts/data_collection` includes the code for sampling data with USRP and packet detection. `scripts/opt` incldues the optimization code to choose the best extension factor. 
+
+## DNN trainning and updating
+The trainning and updating of the DNN is including in the `scripts/DANF/blong_main_uni.py`. 
+`dnn_train_main()` function is used to train new models with the white noise data. 
+`dnn_wifi_update_main()` function is used to update the DNN models with the WiFi intereference. 
+`dnn_uni_update_main()`  function is used to update the DNN models with the data from a LOS scenario. 
 
 ## 7.1 Overall Performance in paper
 The code is `scripts/exp_code_nlos_sensys.ipynb`.
