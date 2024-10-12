@@ -100,5 +100,5 @@ print(energy)
 print("stft", np.mean((energy[:, 0] - energy[:, 1]) / energy[:, 1]))
 print("native", np.mean((energy[:, 0] - energy[:, 2]) / energy[:, 2]))
 
-np.savetxt("./output/energy_consumption.csv", np.hstack([np.arange(-18, -4).reshape(-1, 1), energy]), delimiter=",")
+# np.savetxt("./output/energy_consumption.csv", np.hstack([np.arange(-18, -4).reshape(-1, 1), energy]), delimiter=",")
         
